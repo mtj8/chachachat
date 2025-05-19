@@ -1,5 +1,3 @@
-const state = true;
-
 export default function Home() {
   return (
     <div className="">
