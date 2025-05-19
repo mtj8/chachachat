@@ -9,7 +9,8 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs'
-
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { cn } from "@/lib/utils";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -35,12 +36,15 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider afterSignOutUrl="/">
-      <html lang="en">
-        <body className={`${font.className} ${font.className}`}>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-          {children}
+      <html lang="en" suppressHydrationWarning>
+        <body className={cn(font.className, "bg-white dark:bg-[#313338]")}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            storageKey="theme">
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
