@@ -125,4 +125,7 @@ body,
   body {
     @apply bg-background text-foreground;
   }
-}
+};
+
+/* At the end of your globals.css */
+@import "@uploadthing/react/styles.css";
