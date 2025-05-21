@@ -9,7 +9,9 @@ import {
   SignedOut,
   UserButton,
 } from '@clerk/nextjs'
+
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { ModalProvider } from "@/components/providers/modal-provider";
 import { cn } from "@/lib/utils";
 
 // const geistSans = Geist({
@@ -43,6 +45,7 @@ export default function RootLayout({
             defaultTheme="system"
             enableSystem
             storageKey="theme">
+              <ModalProvider />
             {children}
           </ThemeProvider>
         </body>

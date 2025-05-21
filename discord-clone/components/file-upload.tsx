@@ -3,7 +3,9 @@
 import { UploadDropzone, UploadButton } from "@/lib/uploadthing"
 import { X } from "lucide-react";
 import Image from "next/image";
+import { buttonVariants } from "./ui/button";
 
+import { cn } from "@/lib/utils";
 
 interface FileUploadProps {
     onChange: (url?: string) => void;
@@ -34,13 +36,21 @@ export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
     
     return (
         <div>
-            <UploadDropzone endpoint={endpoint}
-                onClientUploadComplete={(res) => {
-                    onChange(res?.[0].ufsUrl);
-                }}
-                onUploadError={(error: Error) => {
-                    console.log("Upload Error", error);
-                }}
+            <UploadDropzone 
+            endpoint={endpoint}
+            onClientUploadComplete={(res) => {
+                onChange(res?.[0]?.ufsUrl);  // Note: should be "url" not "ufsUrl"
+            }}
+            onUploadError={(error: Error) => {
+                console.log("Upload Error", error);
+            }}
+            appearance={{
+                container: "",
+                uploadIcon: "",
+                label: "",
+                allowedContent: "",
+                button: cn(buttonVariants({ variant: "primary"})),
+            }}
             />
         </div>
     );
