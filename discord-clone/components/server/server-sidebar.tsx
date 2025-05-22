@@ -1,3 +1,5 @@
+// Component for the server sidebar containing server header and channels.
+
 import { currentProfile } from "@/lib/current-profile"
 import { db } from "@/lib/db";
 import { ChannelType } from "@prisma/client";
