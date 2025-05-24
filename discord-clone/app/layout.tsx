@@ -46,7 +46,7 @@ export default function RootLayout({
             enableSystem
             storageKey="theme">
               <ModalProvider />
-            {children}
+              {children} 
           </ThemeProvider>
         </body>
       </html>

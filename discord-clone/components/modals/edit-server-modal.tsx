@@ -88,11 +88,8 @@ export const EditServerModal = () => {
                 >
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
-                        Create a server
+                        Edit your server
                     </DialogTitle>
-                    <DialogDescription>
-                        Name your server and give it an image. You can always change it later.
-                    </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">

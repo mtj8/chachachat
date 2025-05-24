@@ -2,14 +2,14 @@
 
 // Server header component with server name and dropdown menu for server actions depending on role.
 
-import { ServerWitheMembersWithProfiles } from "@/types";
+import { ServerWithMembersWithProfiles } from "@/types";
 import { MemberRole, Server } from "@prisma/client";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { ChevronDown, LogOut, PlusCircle, Settings, Trash, UserPlus, Users } from "lucide-react";
 import { useModal } from "@/hooks/use-modal-store";
 
 interface ServerHeaderProps {
-    server: ServerWitheMembersWithProfiles;
+    server: ServerWithMembersWithProfiles;
     role?: MemberRole;
 }
 
@@ -26,9 +26,9 @@ export const ServerHeader = ({ server, role }: ServerHeaderProps) => {
             <DropdownMenuTrigger className="focus:outline-none" asChild>
                 <button
                     className="w-full text-md font-semibold px-3 flex items-center h-12 border-neutral-200
-                    dark:border-neutral-800 border-b-2 hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition truncate">
-                        {server.name}
-                        <ChevronDown className="h-5 w-5 ml-auto" />
+                    dark:border-neutral-800 border-b-2 hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition">
+                        <div className="truncate flex-grow text-left">{server.name}</div>
+                        <ChevronDown className="h-5 w-5 ml-2 flex-shrink-0" />
                 </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56 text-xs font-medium text-black dark:text-neutral-400 space-y-[2px]">

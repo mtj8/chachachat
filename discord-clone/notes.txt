@@ -1,3 +1,23 @@
 day 1
 5/19/25
 completed up to server creation api (~2hrs 30min)
+
+...
+
+day 4
+5/22/25
+lots of modals
+questions that are popping up:
+i made an account using email (not google) and the name shows up as null null.
+should i make a modal after auth login to create an account?
+(day 5 note: it seems clerk allows for username, so i'm probably going to do that instead.)
+also;
+ui freezes after submitting or closing a modal. why? useModal()?
+finished up to before search server modal
+
+day 5
+5/23/25
+fixed with good old stack overflow and github
+https://github.com/shadcn-ui/ui/issues/1912
+add modal={false} to DropdownMenuRoot in dropdown-menu.tsx
+finished up to before channel id page (7:12:00)

@@ -6,7 +6,7 @@ import qs from "query-string";
 import { useModal } from "@/hooks/use-modal-store";
 import { useState } from "react";
 import { MemberRole } from "@prisma/client";
-import { ServerWitheMembersWithProfiles } from "@/types";
+import { ServerWithMembersWithProfiles } from "@/types";
 
 import { 
     Dialog,
@@ -47,7 +47,7 @@ export const MembersModal = () => {
     const [loadingId, setLoadingId] = useState("");
 
     const isModalOpen = isOpen && type === "members";
-    const { server } = data as { server: ServerWitheMembersWithProfiles };
+    const { server } = data as { server: ServerWithMembersWithProfiles };
 
     const onKick = async (memberId: string) => {
         try {
@@ -124,7 +124,7 @@ export const MembersModal = () => {
                             {/* For each member that isn't the creator (admin), show actions */}
                             {server.profileId !== member.profileId && (
                                 <div className="ml-auto">
-                                    <DropdownMenu>
+                                    <DropdownMenu modal={true}>
                                         <DropdownMenuTrigger>
                                             <MoreVertical className="h-4 w-4 text-zinc-500" />
                                         </DropdownMenuTrigger>
