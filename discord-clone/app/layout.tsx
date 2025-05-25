@@ -13,6 +13,7 @@ import {
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ModalProvider } from "@/components/providers/modal-provider";
 import { cn } from "@/lib/utils";
+import { SocketProvider } from "@/components/providers/socket-provider";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -39,14 +40,16 @@ export default function RootLayout({
   return (
     <ClerkProvider afterSignOutUrl="/">
       <html lang="en" suppressHydrationWarning>
-        <body className={cn(font.className, "bg-white dark:bg-[#313338]")}>
+        <body className={cn(font.className, "bg-white dark:bg-[#313338]")} suppressHydrationWarning>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             storageKey="theme">
-              <ModalProvider />
-              {children} 
+              <SocketProvider>
+                <ModalProvider />
+                {children} 
+              </SocketProvider>
           </ThemeProvider>
         </body>
       </html>

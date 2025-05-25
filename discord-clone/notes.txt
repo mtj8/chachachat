@@ -21,3 +21,5 @@ fixed with good old stack overflow and github
 https://github.com/shadcn-ui/ui/issues/1912
 add modal={false} to DropdownMenuRoot in dropdown-menu.tsx
 finished up to before channel id page (7:12:00)
+
+day 6
