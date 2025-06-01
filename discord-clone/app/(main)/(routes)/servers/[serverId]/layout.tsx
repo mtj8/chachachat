@@ -4,13 +4,18 @@ import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import { ServerSidebar } from "@/components/server/server-sidebar";
 
-const ServerIdLayout = async ({
-    children,
-    params,
-}: {
-    children: React.ReactNode;
-    params: { serverId: string };
-}) => {
+const ServerIdLayout = async (
+    props: {
+        children: React.ReactNode;
+        params: Promise<{ serverId: string }>;
+    }
+) => {
+    const params = await props.params;
+
+    const {
+        children
+    } = props;
+
     const profile = await currentProfile();
     const { redirectToSignIn } = await auth();
     if (!profile) {

@@ -8,18 +8,18 @@ import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 
 interface MemberIdPageProps {
-    params: {
+    params: Promise<{
         memberId: string;
         serverId: string;
-    },
-    searchParams: {
+    }>,
+    searchParams: Promise<{
         video?: boolean,
-    }
+    }>
 }
 
-const MemberIdPage = async (
-    { params, searchParams } : MemberIdPageProps
-) => {
+const MemberIdPage = async (props: MemberIdPageProps) => {
+    const searchParams = await props.searchParams;
+    const params = await props.params;
     const profile = await currentProfile();
     const redirectToSignIn = () => redirect("/");
 
