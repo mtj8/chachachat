@@ -6,7 +6,6 @@ export async function DELETE(
     req: Request,
     { params } : { params: { memberId: string } }
 ) {
-    params = await params;
     try {
         const profile = await currentProfile();
         const { searchParams } = new URL(req.url);
@@ -65,7 +64,6 @@ export async function PATCH(
     req: Request,
     { params } : { params: { memberId: string } }
 ) {
-    params = await params;
     try {
         const profile = await currentProfile();
         const { searchParams } = new URL(req.url);

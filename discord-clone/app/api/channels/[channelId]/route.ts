@@ -8,7 +8,6 @@ export async function DELETE(
     { params }: { params: {channelId: string} }
 ) {
     try {
-        params = await params;
         const profile = await currentProfile();
         const { name } = await req.json();
         const { searchParams } = new URL(req.url);

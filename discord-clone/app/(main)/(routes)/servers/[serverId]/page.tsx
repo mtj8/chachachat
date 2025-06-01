@@ -11,7 +11,6 @@ interface ServerIdPageProps {
 const ServerIdPage = async (
     { params }: ServerIdPageProps
 ) => {
-    params = await params;
 
     const profileData = await currentProfile();
     if (!profileData) {

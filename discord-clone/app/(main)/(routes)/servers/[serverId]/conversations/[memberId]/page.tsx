@@ -20,9 +20,6 @@ interface MemberIdPageProps {
 const MemberIdPage = async (
     { params, searchParams } : MemberIdPageProps
 ) => {
-    params = await params;
-    searchParams = await searchParams;
-
     const profile = await currentProfile();
     const redirectToSignIn = () => redirect("/");
 

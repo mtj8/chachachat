@@ -17,7 +17,6 @@ const ServerIdLayout = async ({
         return redirectToSignIn();
     }
 
-    params = await params;
 
     const server = await db.server.findUnique({
         where: {
