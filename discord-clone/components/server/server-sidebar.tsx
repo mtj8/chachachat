@@ -11,7 +11,6 @@ import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
 import { Separator } from "../ui/separator";
 import { ServerSection } from "./server-section";
 import { ServerChannel } from "./server-channel";
-import { channel } from "diagnostics_channel";
 import { ServerMember } from "./server-member";
 
 
@@ -110,7 +109,7 @@ export const ServerSidebar = async ({ serverId }: {serverId: string}) => {
                             type: "member",
                             data: members?.map((member) => ({
                                 id: member.id,
-                                name: member.profile.name,
+                                name: member.profile.username,
                                 icon: roleIconMap[member.role],
                             }))
                         }
