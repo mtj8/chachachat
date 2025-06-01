@@ -56,7 +56,7 @@ export async function DELETE(
     }
 
     catch (error) {
-        console.log("[CHANNEL_ID_PATCH]", error);
+        console.log("[CHANNEL_ID_DELETE]", error);
         return new NextResponse("Internal Server Error", { status: 500});
     }
 }
@@ -115,7 +115,7 @@ export async function PATCH(
     }
 
     catch (error) {
-        console.log("[CHANNEL_ID_DELETE]", error);
+        console.log("[CHANNEL_ID_UPDATE]", error);
         return new NextResponse("Internal Server Error", { status: 500});
     }
 }

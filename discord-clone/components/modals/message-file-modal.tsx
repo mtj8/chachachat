@@ -33,7 +33,8 @@ import qs from "query-string";
 const formSchema = z.object({ 
     fileUrl: z.string().min(1, {
         message: "Attachment is required."
-    })
+    }),
+    fileType: z.string().optional()
 })
 
 export const MessageFileModal = () => {
@@ -47,6 +48,7 @@ export const MessageFileModal = () => {
         resolver: zodResolver(formSchema),
         defaultValues: {
             fileUrl: "",
+            fileType: "",
         }
     });
 
@@ -62,7 +64,7 @@ export const MessageFileModal = () => {
                 url: apiUrl || "",
                 query,
             })
-            await axios.post(url, {...values, content: values.fileUrl});
+            await axios.post(url, {...values, content: values.fileUrl, fileType: values.fileType});
             form.reset();
             router.refresh();
             handleClose();
@@ -96,7 +98,10 @@ export const MessageFileModal = () => {
                                                 <FileUpload 
                                                     endpoint="messageFile"
                                                     value={field.value}
-                                                    onChange={field.onChange}
+                                                    onChange={(url, fileType) => {
+                                                        field.onChange(url);
+                                                        form.setValue("fileType", fileType || "");
+                                                    }}
                                                 />
                                             </FormControl>
                                         </FormItem>

@@ -8,11 +8,7 @@ const MainLayout = async ({ children }: { children: React.ReactNode }) => {
                 <NavigationSidebar />
             </div>
             <main className="md:pl-[72px] h-full">
-                <ThemeProvider
-                attribute="class"
-                defaultTheme="system"
-                enableSystem
-                storageKey="theme">
+                <ThemeProvider>
                     {children}
                 </ThemeProvider>
             </main>

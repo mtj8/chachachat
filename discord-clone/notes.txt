@@ -23,3 +23,7 @@ add modal={false} to DropdownMenuRoot in dropdown-menu.tsx
 finished up to before channel id page (7:12:00)
 
 day 6
+5/24/25
+finished up to before the emoji bar (9:04:00)
+
+day 7

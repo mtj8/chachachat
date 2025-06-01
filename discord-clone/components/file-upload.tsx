@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
 interface FileUploadProps {
-    onChange: (url?: string) => void;
+    onChange: (url?: string, fileType?: string) => void;
     value: string;
     endpoint: "messageFile" | "serverImage";
 }
@@ -33,7 +33,7 @@ export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
                     alt="Uploaded image"
                     className={cn(endpoint === "serverImage" ? "rounded-full" : "")}
                 />
-                <button onClick={() => onChange("")}
+                <button onClick={() => onChange("", "")}
                     className="bg-rose-500 text-white p-1 rounded-full absolute top-0 right-0 shadow-sm"
                     type="button">
                     <X className="h-4 w-4" />
@@ -55,7 +55,7 @@ export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
                     >
                         {value}
                     </a>
-                <button onClick={() => onChange("")}
+                <button onClick={() => onChange("", "")}
                     className="bg-rose-500 text-white p-1 rounded-full absolute -top-2 -right-2 shadow-sm"
                     type="button">
                     <X className="h-4 w-4" />
@@ -69,12 +69,11 @@ export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
             endpoint={endpoint}
             onClientUploadComplete={(res) => {
                 console.log(res);
-                onChange(res?.[0]?.ufsUrl);
                 
                 const fileName = res?.[0]?.name || "";
                 const fileType = fileName.split('.').pop()?.toLowerCase() || "";
-
                 setFileType(fileType);
+                onChange(res?.[0]?.ufsUrl, fileType);
             }}
             onUploadError={(error: Error) => {
                 console.log("Upload Error", error);
